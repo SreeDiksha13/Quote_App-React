@@ -1,11 +1,11 @@
-📜 Quote App
-🛠️ Getting Started
+**📜 Quote App
+🛠️ Getting Started**
 This project was bootstrapped with Create React App.
 
-📌 Overview
+**📌 Overview**
 The Quote App is a dynamic React application that fetches random quotes from an external API and displays them in an interactive card. The app also shows the current time and indicates whether it's day or night with a 🌞 or 🌜 emoji.
 
-🚀 Available Scripts
+**🚀 Available Scripts**
 In the project directory, you can run:
 
 ▶️ npm start
