@@ -1,3 +1,5 @@
+![Uploading image.png…]()
+
 **📜 Quote App
 🛠️ Getting Started**
 This project was bootstrapped with Create React App.
