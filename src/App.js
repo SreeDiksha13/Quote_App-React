@@ -3,15 +3,23 @@ import './App.css';
 import axios from 'axios';
 
 class App extends React.Component {
-    state = { quote: '', rotate: false };
+    state = { quote: '', rotate: false, currentTime: new Date(), emoji: '🌞' };
 
     componentDidMount() {
         this.fetchQuote();
         window.addEventListener('mousemove', this.handleMouseMove);
+        this.timeInterval = setInterval(() => {
+            const now = new Date();
+            this.setState({ 
+                currentTime: now,
+                emoji: (now.getHours() >= 6 && now.getHours() < 18) ? '🌞' : '🌜' 
+            });
+        }, 1000); 
     }
 
     componentWillUnmount() {
         window.removeEventListener('mousemove', this.handleMouseMove);
+        clearInterval(this.timeInterval); 
     }
 
     fetchQuote = () => {
@@ -45,9 +53,17 @@ class App extends React.Component {
     }
 
     render() {
-        const { quote, rotate } = this.state;
+        const { quote, rotate, currentTime, emoji } = this.state;
         return (
             <div className="app">
+                <div className="clock" style={{ position: 'absolute', top: 10, right: 10, fontSize: '1.2rem', backgroundColor: 'white', padding: '10px', borderRadius: '5px' }}>
+                    {emoji} {currentTime.toLocaleString("en-US", {
+                        hour: "numeric",
+                        minute: "numeric",
+                        second: "2-digit",
+                        hour12: true,
+                    })}
+                </div>
                 <div className="card" onMouseLeave={this.resetTransform}>
                     <span className={`emoji ${rotate ? 'rotate' : ''}`} role="img" aria-label="sparkle">✨</span>
                     <h1 className="quote">{quote}</h1>
