@@ -1,4 +1,5 @@
-![Uploading image.png…]()
+**VIEW AT**
+**https://rainbow-cendol-b55154.netlify.app/**
 
 **📜 Quote App
 🛠️ Getting Started**
